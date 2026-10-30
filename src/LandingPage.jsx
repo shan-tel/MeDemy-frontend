@@ -273,7 +273,7 @@ export default function LandingPage() {
             <h2
               style={{
                 fontSize: "32px",
-                color: "#0B3D2E",
+                color: "#000000",
                 margin: "0 0 20px 0",
               }}
             >
@@ -282,13 +282,13 @@ export default function LandingPage() {
             <p
               style={{
                 fontSize: "17px",
-                color: "#444",
+                color: "#920909",
                 lineHeight: "1.7",
                 marginBottom: "35px",
               }}
             >
               MeDemy is a learning platform built for students who want
-              structure without rigidity — bite-sized course sections, instant
+              structure without rigidity. Bite-sized course sections, instant
               quiz feedback, and a dashboard that actually shows you what you've
               finished and what's left.
             </p>
@@ -296,7 +296,7 @@ export default function LandingPage() {
             {[
               {
                 Icon: Target,
-                text: "Clear, structured course paths — no guessing what to learn next",
+                text: "Clear, structured course paths. No guessing what to learn next",
               },
               {
                 Icon: Zap,
@@ -332,7 +332,7 @@ export default function LandingPage() {
                 </div>
                 <p
                   style={{
-                    color: "#333",
+                    color: "#920909",
                     fontSize: "15px",
                     margin: "6px 0 0 0",
                   }}
@@ -361,7 +361,7 @@ export default function LandingPage() {
                 lineHeight: "1.6",
               }}
             >
-              "I finally finished a course I started — the quizzes kept me
+              "I finally finished a course I started.The quizzes kept me
               honest about what I actually understood."
             </p>
             <p

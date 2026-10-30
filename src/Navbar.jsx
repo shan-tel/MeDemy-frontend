@@ -13,17 +13,26 @@ export default function Navbar() {
         WebkitBackdropFilter: "blur(10px)",
       }}
     >
-      <h1 style={{ color: "#fff", fontSize: "22px", margin: 0 }}>MeDemy</h1>
+      <Link
+        to="/"
+        className="nav-link"
+        style={{ color: "#fff", fontSize: "22px", margin: 0 }}
+      >
+        MeDemy
+      </Link>
 
       <div style={{ display: "flex", gap: "30px" }}>
-        <Link to="/" className="nav-link">
-          Home
+        <Link to="/about-us" className="nav-link">
+          About Us
         </Link>
         <Link to="/courses" className="nav-link">
           Courses
         </Link>
         <Link to="/instructors" className="nav-link">
           Instructors
+        </Link>
+        <Link to="/contact-us" className="nav-link">
+          Contact Us
         </Link>
       </div>
 

@@ -2,7 +2,8 @@ import { useState } from "react";
 import myBackground from "./assets/login-bg.png";
 import { Link } from "react-router-dom";
 import "./App.css";
-
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 export default function Login() {
     
     const [email, setEmail] = useState("");

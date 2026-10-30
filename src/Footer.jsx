@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import myBackground from "./assets/login-bg.png";
 
 export default function Footer() {
   const columns = [
@@ -31,81 +32,129 @@ export default function Footer() {
     },
   ];
 
+  const socials = ["Instagram", "LinkedIn", "Twitter/X", "WhatsApp"];
+
   const linkStyle = {
-    color: "#9a97b0",
+    color: "#2c4a6b",
     textDecoration: "none",
     fontSize: "15px",
   };
+
   return (
     <footer
       style={{
-        backgroundColor: "#4441db",
-        backgroundImage:
-          "linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)",
-        backgroundSize: "40px 40px",
-        color: "#fff",
-        padding: "60px 60px 30px",
+        backgroundImage: `url(${myBackground})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        padding: "40px",
       }}
     >
-      <h2
-        style={{
-          margin: 0,
-          fontSize: "40px",
-          fontWeight: "800",
-          letterSpacing: "2px",
-          textTransform: "uppercase",
-        }}
-      >
-        MeDemy
-      </h2>
-      <p
-        style={{
-          margin: "12px 0 0 0",
-          fontSize: "15px",
-          color: "#9a97b0",
-          maxWidth: "420px",
-          lineHeight: "1.6",
-        }}
-      >
-        Structured courses, instant quiz feedback, and progress you can actually
-        see.
-      </p>
       <div
         style={{
-          display: "flex",
-          gap: "80px",
-          justifyContent: "space-between",
-          marginTop: "50px",
+          background: "rgba(255, 255, 255, 0.25)",
+          backdropFilter: "blur(14px)",
+          WebkitBackdropFilter: "blur(14px)",
+          border: "1px solid rgba(255, 255, 255, 0.5)",
+          borderRadius: "24px",
+          padding: "50px",
+          boxShadow: "0 8px 32px rgba(0, 123, 255, 0.2)",
         }}
       >
-        {columns.map((col) => (
-          <div key={col.title}>
-            <h4
-              style={{
-                color: "#ffd84d",
-                fontSize: "13px",
-                letterSpacing: "3px",
-                textTransform: "uppercase",
-                margin: "0 0 18px 0",
-              }}
-            >
-              {col.title}
-            </h4>
-            {col.links.map((link) => (
-              <p key={link.label} style={{ margin: "0 0 12px 0" }}>
-                {link.to ? (
-                  <Link to={link.to} style={linkStyle}>
-                    {link.label}
-                  </Link>
-                ) : (
-                  <a href="#" style={linkStyle}>
-                    {link.label}
-                  </a>
-                )}
-              </p>
+        <h2
+          style={{
+            margin: 0,
+            fontSize: "40px",
+            fontWeight: "800",
+            letterSpacing: "2px",
+            textTransform: "uppercase",
+            color: "#0b2a4a",
+          }}
+        >
+          MeDemy
+        </h2>
+        <p
+          style={{
+            margin: "12px 0 0 0",
+            fontSize: "15px",
+            color: "#3b5878",
+            maxWidth: "420px",
+            lineHeight: "1.6",
+          }}
+        >
+          Structured courses, instant quiz feedback, and progress you can
+          actually see.
+        </p>
+
+        <div
+          style={{
+            display: "flex",
+            gap: "80px",
+            justifyContent: "space-between",
+            marginTop: "50px",
+          }}
+        >
+          {columns.map((col) => (
+            <div key={col.title}>
+              <h4
+                style={{
+                  color: "#0056b3",
+                  fontSize: "13px",
+                  letterSpacing: "3px",
+                  textTransform: "uppercase",
+                  margin: "0 0 18px 0",
+                }}
+              >
+                {col.title}
+              </h4>
+              {col.links.map((link) => (
+                <p key={link.label} style={{ margin: "0 0 12px 0" }}>
+                  {link.to ? (
+                    <Link to={link.to} style={linkStyle}>
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a href="#" style={linkStyle}>
+                      {link.label}
+                    </a>
+                  )}
+                </p>
+              ))}
+            </div>
+          ))}
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginTop: "50px",
+            paddingTop: "25px",
+            borderTop: "1px solid rgba(255, 255, 255, 0.5)",
+            color: "#3b5878",
+          }}
+        >
+          <span style={{ fontFamily: "monospace", fontSize: "13px" }}>
+            © 2026 MeDemy. All rights reserved.
+          </span>
+          <div style={{ display: "flex", gap: "24px" }}>
+            {socials.map((name) => (
+              <a
+                key={name}
+                href="#"
+                style={{
+                  color: "#3b5878",
+                  textDecoration: "none",
+                  fontSize: "12px",
+                  letterSpacing: "2px",
+                  textTransform: "uppercase",
+                }}
+              >
+                {name}
+              </a>
             ))}
           </div>
-        ))}
+        </div>
       </div>
     </footer>
   );
