@@ -88,16 +88,24 @@ export default function LandingPage() {
         </section>
         <section
           style={{
-            display: "flex",
-            justifyContent: "space-around",
-            alignItems: "center",
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
+            gap: "30px",
+            padding: "40px clamp(20px, 5vw, 60px)",
             padding: "40px 40px",
             background: "#e8f0f5c5",
             borderBottom: "1px solid #eaeaea",
           }}
         >
           <div style={{ textAlign: "center" }}>
-            <h3 style={{ fontSize: "36px", color: "#007bff", margin: "0" }}>
+            <h3
+              style={{
+                fontSize: "36px",
+                fontWeight: "600",
+                color: "#007bff",
+                margin: "0",
+              }}
+            >
               270+
             </h3>
             <p
@@ -107,7 +115,14 @@ export default function LandingPage() {
             </p>
           </div>
           <div style={{ textAlign: "center" }}>
-            <h3 style={{ fontSize: "36px", color: "#007bff", margin: "0" }}>
+            <h3
+              style={{
+                fontSize: "36px",
+                fontWeight: "600",
+                color: "#007bff",
+                margin: "0",
+              }}
+            >
               10k+
             </h3>
             <p
@@ -117,7 +132,14 @@ export default function LandingPage() {
             </p>
           </div>
           <div style={{ textAlign: "center" }}>
-            <h3 style={{ fontSize: "36px", color: "#007bff", margin: "0" }}>
+            <h3
+              style={{
+                fontSize: "36px",
+                fontWeight: "600",
+                color: "#007bff",
+                margin: "0",
+              }}
+            >
               4.8
             </h3>
             <p
@@ -127,7 +149,14 @@ export default function LandingPage() {
             </p>
           </div>
           <div style={{ textAlign: "center" }}>
-            <h3 style={{ fontSize: "36px", color: "#007bff", margin: "0" }}>
+            <h3
+              style={{
+                fontSize: "36px",
+                fontWeight: "600",
+                color: "#007bff",
+                margin: "0",
+              }}
+            >
               50+
             </h3>
             <p
@@ -162,9 +191,11 @@ export default function LandingPage() {
               gap: "40px",
               maxWidth: "1000px",
               margin: "0 auto",
+              flexWrap: "wrap",
             }}
           >
             <div
+              className="steps-line"
               style={{
                 position: "absolute",
                 top: "28px",
@@ -193,7 +224,10 @@ export default function LandingPage() {
                 text: "Track your progress, take quizzes, and earn certificates as you go.",
               },
             ].map((step, i) => (
-              <div key={i} style={{ flex: 1, position: "relative", zIndex: 1 }}>
+              <div
+                key={i}
+                style={{ flex: "1 1 220px", position: "relative", zIndex: 1 }}
+              >
                 <div
                   style={{
                     width: "56px",
@@ -265,9 +299,10 @@ export default function LandingPage() {
             display: "flex",
             alignItems: "center",
             gap: "60px",
+            flexWrap: "wrap",
           }}
         >
-          <div style={{ flex: 1 }}>
+          <div style={{ flex: "1 1 300px" }}>
             <h2
               style={{
                 fontSize: "32px",
@@ -280,7 +315,7 @@ export default function LandingPage() {
             <p
               style={{
                 fontSize: "17px",
-                color: "#091e92",
+                color: "#094092",
                 lineHeight: "1.7",
                 marginBottom: "35px",
               }}

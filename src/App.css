@@ -295,7 +295,7 @@
      right: 1px;
     width: 240px;
     padding: 20px;
-    background: rgba(105, 155, 209, 0.89);
+    background: rgba(105, 155, 209, 0.849);
     border-radius: 0 0 16px 16px;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
     opacity: 0;
@@ -345,5 +345,10 @@
   .hero {
     flex-direction: column;
     justify-content: center;
+  }
+}
+@media (max-width: 860px) {
+  .steps-line {
+    display: none;
   }
 }
