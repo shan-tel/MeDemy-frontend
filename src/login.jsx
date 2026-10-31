@@ -43,7 +43,7 @@ export default function Login() {
     return (
       <div
         style={{
-          padding: "50px",
+          padding: "20px",
           fontFamily: "Plus Jakarta Sans, sans-serif",
           minHeight: "100vh",
           display: "flex",
@@ -63,7 +63,8 @@ export default function Login() {
           style={{
             display: "flex",
             flexDirection: "column",
-            width: "450px",
+            width: "100%",
+            maxWidth: "450px",
             minHeight: "300px",
             gap: "15px",
             padding: "40px",

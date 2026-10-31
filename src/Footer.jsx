@@ -24,7 +24,7 @@ export default function Footer() {
     {
       title: "Reach Us",
       links: [
-        { label: "hello@medemy.com" },
+        { label: "medemy@gmail.com" },
         { label: "Instagram" },
         { label: "LinkedIn" },
         { label: "WhatsApp" },
@@ -46,7 +46,7 @@ export default function Footer() {
         backgroundImage: `url(${myBackground})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        padding: "40px",
+        padding: "clamp(16px, 4vw, 40px)",
       }}
     >
       <div
@@ -56,7 +56,7 @@ export default function Footer() {
           WebkitBackdropFilter: "blur(14px)",
           border: "1px solid rgba(255, 255, 255, 0.5)",
           borderRadius: "24px",
-          padding: "50px",
+          padding: "clamp(24px, 6vw, 50px)",
           boxShadow: "0 8px 32px rgba(0, 123, 255, 0.2)",
         }}
       >
@@ -88,9 +88,10 @@ export default function Footer() {
         <div
           style={{
             display: "flex",
-            gap: "80px",
             justifyContent: "space-between",
             marginTop: "50px",
+            flexWrap: "wrap",
+            gap: "40px",
           }}
         >
           {columns.map((col) => (
@@ -132,12 +133,14 @@ export default function Footer() {
             paddingTop: "25px",
             borderTop: "1px solid rgba(255, 255, 255, 0.5)",
             color: "#3b5878",
+            flexWrap: "wrap",
+            gap: "16px",
           }}
         >
           <span style={{ fontFamily: "monospace", fontSize: "13px" }}>
             © 2026 MeDemy. All rights reserved.
           </span>
-          <div style={{ display: "flex", gap: "24px" }}>
+          <div style={{ display: "flex", gap: "24px", flexWrap: "wrap" }}>
             {socials.map((name) => (
               <a
                 key={name}

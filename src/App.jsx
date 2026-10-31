@@ -49,7 +49,7 @@ function Register() {
     }
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/register", {
+      const response = await fetch("http://127.0.0.1:8000/users/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -59,7 +59,6 @@ function Register() {
           username: username,
           email: email,
           password: password,
-          role: role,
         }),
       });
       if (response.ok) {
@@ -80,7 +79,7 @@ function Register() {
   return (
     <div
       style={{
-        padding: "50px",
+        padding: "20px",
         fontFamily: "Plus Jakarta Sans, sans-serif",
         minHeight: "100vh",
         display: "flex",
@@ -100,7 +99,8 @@ function Register() {
         style={{
           display: "flex",
           flexDirection: "column",
-          width: "400px",
+          width: "100%",
+          maxWidth: "400px",
           gap: "0px",
           padding: "40px",
           background: "rgba(255, 255, 255, 0.4)",

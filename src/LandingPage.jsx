@@ -24,20 +24,18 @@ export default function LandingPage() {
         <Navbar />
 
         <section
+          className="hero"
           style={{
             minHeight: "100vh",
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
             alignItems: "center",
             textAlign: "left",
-            padding: "0 20px",
+            padding: "40px 20px",
           }}
         >
           <div style={{ textAlign: "left", maxWidth: "520px" }}>
             <h2
               style={{
-                fontSize: "42px",
+                fontSize: "clamp(28px, 7vw, 42px)",
                 maxWidth: "700px",
                 padding: "10px",
                 color: "#fff",
@@ -282,7 +280,7 @@ export default function LandingPage() {
             <p
               style={{
                 fontSize: "17px",
-                color: "#920909",
+                color: "#091e92",
                 lineHeight: "1.7",
                 marginBottom: "35px",
               }}
@@ -332,7 +330,7 @@ export default function LandingPage() {
                 </div>
                 <p
                   style={{
-                    color: "#920909",
+                    color: "#094092",
                     fontSize: "15px",
                     margin: "6px 0 0 0",
                   }}
@@ -361,8 +359,8 @@ export default function LandingPage() {
                 lineHeight: "1.6",
               }}
             >
-              "I finally finished a course I started.The quizzes kept me
-              honest about what I actually understood."
+              "I finally finished a course I started.The quizzes kept me honest
+              about what I actually understood."
             </p>
             <p
               style={{ marginTop: "20px", fontWeight: "700", color: "#007bff" }}
