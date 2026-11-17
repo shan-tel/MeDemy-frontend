@@ -1,7 +1,14 @@
 import { Link } from "react-router-dom";
 import myBackground from "./assets/login-bg.png";
 import heroImage from "./assets/girllearning.png";
-import { UserPlus, BookOpen, Rocket, Target, Zap, TrendingUp } from "lucide-react";
+import {
+  UserPlus,
+  BookOpen,
+  Rocket,
+  Target,
+  Zap,
+  TrendingUp,
+} from "lucide-react";
 import Navbar from "./Navbar.jsx";
 import Footer from "./Footer.jsx";
 
@@ -29,7 +36,7 @@ export default function LandingPage() {
             minHeight: "100vh",
             alignItems: "center",
             textAlign: "left",
-            padding: "40px 20px",
+            padding: "40px 20px 0",
           }}
         >
           <div style={{ textAlign: "left", maxWidth: "520px" }}>
@@ -81,92 +88,10 @@ export default function LandingPage() {
             style={{
               maxWidth: "810px",
               width: "100%",
-              borderRadius: "16px",
               alignItems: "flex-end",
             }}
           />
         </section>
-        <section
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
-            gap: "30px",
-            padding: "40px clamp(20px, 5vw, 60px)",
-            padding: "40px 40px",
-            background: "#e8f0f5c5",
-            borderBottom: "1px solid #eaeaea",
-          }}
-        >
-          <div style={{ textAlign: "center" }}>
-            <h3
-              style={{
-                fontSize: "36px",
-                fontWeight: "600",
-                color: "#007bff",
-                margin: "0",
-              }}
-            >
-              270+
-            </h3>
-            <p
-              style={{ color: "#555", margin: "5px 0 0 0", fontWeight: "600" }}
-            >
-              Active Courses
-            </p>
-          </div>
-          <div style={{ textAlign: "center" }}>
-            <h3
-              style={{
-                fontSize: "36px",
-                fontWeight: "600",
-                color: "#007bff",
-                margin: "0",
-              }}
-            >
-              10k+
-            </h3>
-            <p
-              style={{ color: "#555", margin: "5px 0 0 0", fontWeight: "600" }}
-            >
-              Enrolled Students
-            </p>
-          </div>
-          <div style={{ textAlign: "center" }}>
-            <h3
-              style={{
-                fontSize: "36px",
-                fontWeight: "600",
-                color: "#007bff",
-                margin: "0",
-              }}
-            >
-              4.8
-            </h3>
-            <p
-              style={{ color: "#555", margin: "5px 0 0 0", fontWeight: "600" }}
-            >
-              Average Rating
-            </p>
-          </div>
-          <div style={{ textAlign: "center" }}>
-            <h3
-              style={{
-                fontSize: "36px",
-                fontWeight: "600",
-                color: "#007bff",
-                margin: "0",
-              }}
-            >
-              50+
-            </h3>
-            <p
-              style={{ color: "#555", margin: "5px 0 0 0", fontWeight: "600" }}
-            >
-              Expert Instructors
-            </p>
-          </div>
-        </section>
-
         <section
           style={{
             padding: "100px 60px",

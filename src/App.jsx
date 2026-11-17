@@ -1,13 +1,13 @@
 import { useState } from "react";
 import myBackground from "./assets/login-bg.png";
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
 import Login from "./login.jsx";
-import { Link } from "react-router-dom";
 import LandingPage from "./LandingPage.jsx";
 import Courses from "./Courses.jsx";
 import Instructors from "./Instructors.jsx";
-
+import InstructorOnboarding from "./InstructorOnboarding.jsx";
+import { Routes, Route, Link, useNavigate } from "react-router-dom";
+import { Eye, EyeOff } from "lucide-react";
 
 function Register() {
   const [fullname, setFullname] = useState("");
@@ -18,7 +18,8 @@ function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("student");
-  
+  const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
 
   const handlelogin = async (e) => {
     e.preventDefault();
@@ -59,6 +60,7 @@ function Register() {
           username: username,
           email: email,
           password: password,
+          role: role,
         }),
       });
       if (response.ok) {
@@ -68,6 +70,12 @@ function Register() {
         setUsername("");
         setEmail("");
         setPassword("");
+
+        if (role === "Instructor") {
+          navigate("/instructor-onboarding");
+        } else {
+          navigate("/login");
+        }
       } else {
         console.error("FastAPI rejected the data. Check your backend logic.");
       }
@@ -75,7 +83,7 @@ function Register() {
       console.error("Network error! Is FastAPI running?", error);
     }
   };
- 
+
   return (
     <div
       style={{
@@ -231,12 +239,13 @@ function Register() {
           }}
         >
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             style={{
               padding: "14px",
+              paddingRight: "44px",
               background: "rgba(0,123,255,0.25)",
               backdropFilter: "blur(10px)",
               WebkitBackdropFilter: "blur(10px)",
@@ -251,6 +260,26 @@ function Register() {
               fontWeight: "550",
             }}
           />
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+            aria-label={showPassword ? "Hide password" : "Show password"}
+            style={{
+              position: "absolute",
+              right: "12px",
+              top: "13px",
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              padding: 0,
+            }}
+          >
+            {showPassword ? (
+              <EyeOff size={20} color="#fff" />
+            ) : (
+              <Eye size={20} color="#fff" />
+            )}
+          </button>
 
           {passwordError && <div className="error-bubble">{passwordError}</div>}
 
@@ -287,7 +316,7 @@ function Register() {
               <option value="student" style={{ color: "#000" }}>
                 Student
               </option>
-              <option value="instructor" style={{ color: "#000" }}>
+              <option value="teacher" style={{ color: "#000" }}>
                 Instructor
               </option>
               <option value="admin" style={{ color: "#000" }}>
@@ -370,6 +399,10 @@ export default function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/courses" element={<Courses />} />
       <Route path="/instructors" element={<Instructors />} />
+      <Route
+        path="/instructor-onboarding"
+        element={<h2>Instructor Onboarding Coming Soon!</h2>}
+      />
     </Routes>
   );
 }

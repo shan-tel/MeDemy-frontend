@@ -2,6 +2,8 @@ import Navbar from "./Navbar.jsx";
 import Footer from "./Footer.jsx";
 import myBackground from "./assets/login-bg.png";
 import presly from "./assets/presly.png"
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Instructors() {
   const instructors = [
@@ -55,6 +57,8 @@ export default function Instructors() {
       students: 510,
     },
   ];
+
+    
 
   return (
     <div style={{ fontFamily: "Plus Jakarta Sans, sans-serif" }}>

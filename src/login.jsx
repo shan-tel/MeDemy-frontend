@@ -6,22 +6,21 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 export default function Login() {
     
-    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [emailError, setEmailError] = useState("");
+    const [usernameError, setUsernameError] = useState("");
     const [passwordError, setPasswordError] = useState("");
 
     const handleloginsubmit = async (e) => {
         e.preventDefault();
-        setEmailError("");
+        setUsernameError("");
         setPasswordError("");
-        console.log("Login attempt:", email, password);
+        console.log("Login attempt:", username, password);
 
          let isValid = true;
 
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-          setEmailError("Please enter a valid email address.");
+        if (username.trim().length < 3) {
+          setUsernameError("Username must be at least 3 characters.");
           isValid = false;
         }
         const hasNumber = /\d/.test(password);
@@ -40,7 +39,8 @@ export default function Login() {
     };
     
 
-    return (
+  return (
+      
       <div
         style={{
           padding: "20px",
@@ -94,10 +94,10 @@ export default function Login() {
             }}
           >
             <input
-              type="email"
-              placeholder="Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
               style={{
                 padding: "14px",
                 border: "2px solid #000",
@@ -115,7 +115,7 @@ export default function Login() {
                 fontWeight: "550",
               }}
             />
-            {emailError && <div className="error-bubble">{emailError}</div>}
+            {usernameError && <div className="error-bubble">{usernameError}</div>}
           </div>
           <div
             style={{
