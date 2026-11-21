@@ -1,41 +1,74 @@
 import { useState } from "react";
 import myBackground from "./assets/login-bg.png";
-import { Link } from "react-router-dom";
 import "./App.css";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 export default function Login() {
-    
+    const navigate = useNavigate();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [usernameError, setUsernameError] = useState("");
     const [passwordError, setPasswordError] = useState("");
 
     const handleloginsubmit = async (e) => {
-        e.preventDefault();
-        setUsernameError("");
-        setPasswordError("");
-        console.log("Login attempt:", username, password);
+      e.preventDefault();
+      setUsernameError("");
+      setPasswordError("");
 
-         let isValid = true;
+      let isValid = true;
 
-        if (username.trim().length < 3) {
-          setUsernameError("Username must be at least 3 characters.");
-          isValid = false;
+      if (username.trim().length < 3) {
+        setUsernameError("Username must be at least 3 characters.");
+        isValid = false;
+      }
+      const hasNumber = /\d/.test(password);
+      const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+      if (password.length < 6 || !hasNumber || !hasSpecialChar) {
+        setPasswordError(
+          "Must be 6+ chars with a number and special character.",
+        );
+        isValid = false;
+      }
+      if (!isValid) {
+        return;
+      }
+
+      // Send form-encoded credentials to FastAPI
+      const formData = new URLSearchParams();
+      formData.append("username", username);
+      formData.append("password", password);
+
+      try {
+        const response = await fetch("http://127.0.0.1:8000/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: formData,
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          localStorage.setItem("access_token", data.access_token);
+          localStorage.setItem("user_role", data.role);
+          localStorage.setItem("user_id", data.user_id);
+          localStorage.setItem("full_name", data.full_name);
+
+          if (data.role === "instructor" || data.role === "teacher") {
+            navigate("/instructor-dashboard");
+          } else {
+            navigate("/courses");
+          }
+        } else {
+          setPasswordError(data.detail || "Invalid username or password.");
         }
-        const hasNumber = /\d/.test(password);
-        const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
-
-        if (password.length < 6 || !hasNumber || !hasSpecialChar) {
-          setPasswordError(
-            "Must be 6+ chars with a number and special character.",
-          );
-          isValid = false;
-        }
-        if (!isValid) {
-          return;
-        }
-
+      } catch (error) {
+        console.error("Login error:", error);
+        setPasswordError("Could not connect to the server.");
+      }
     };
     
 

@@ -5,10 +5,9 @@ import Login from "./login.jsx";
 import LandingPage from "./LandingPage.jsx";
 import Courses from "./Courses.jsx";
 import Instructors from "./Instructors.jsx";
-import InstructorOnboarding from "./InstructorOnboarding.jsx";
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
-
+import InstructorDashboard from "./InstructorDashboard.jsx";
 function Register() {
   const [fullname, setFullname] = useState("");
   const [username, setUsername] = useState("");
@@ -403,6 +402,7 @@ export default function App() {
         path="/instructor-onboarding"
         element={<h2>Instructor Onboarding Coming Soon!</h2>}
       />
+      <Route path="/instructor-dashboard" element={<InstructorDashboard />} />
     </Routes>
   );
 }
